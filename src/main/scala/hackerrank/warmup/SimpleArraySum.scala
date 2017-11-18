@@ -1,7 +1,7 @@
 import scala.util._
 
 
-object SimpleArraySum extends App {
+object SimpleArraySum  {
 
   val n = io.StdIn.readInt()
   val arr = io.StdIn.readLine().split(" ").map(acc => Try(acc.toInt).getOrElse(0))
