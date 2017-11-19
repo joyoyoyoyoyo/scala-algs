@@ -2,12 +2,14 @@ object ArraysAndStrings {
   val dictionary = Array.fill(128)(false)
 
   val str = "abcde".toCharArray
-  val memo = str.foldLeft(false)((acc, xs) =>
-    if (!dictionary(xs.toInt)) {
+
+  // Finds uniqueness
+  val memo = str.foldLeft(true)((acc, xs) =>
+    if (acc && !dictionary(xs.toInt)) {
       dictionary(xs.toInt) = true
       false
     } else {
-      true
+      acc
     }
   )
 
