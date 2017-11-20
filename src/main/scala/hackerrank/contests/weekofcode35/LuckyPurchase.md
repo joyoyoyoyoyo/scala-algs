@@ -6,8 +6,8 @@ For example, if Sharon has a choice between laptops 'BestBook' priced at 444777 
 
 __Input Format__
 
-The first line contains an integer , denoting the number of laptops. 
-The next  lines contains one string (name of company laptop) and an integer describing the value of each laptop.
+The first line contains an integer n, denoting the number of laptops. 
+The next n lines contains one string (name of company laptop) and an integer describing the value of each laptop.
 
 __Constraints__
 * 1 <= n <= 10^5
