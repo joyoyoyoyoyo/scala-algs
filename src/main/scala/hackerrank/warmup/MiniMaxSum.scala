@@ -18,6 +18,6 @@ object MiniMaxSum {
   }
 
   val (minSum, maxSum) = minMaxSum(arr)
-  println(s"min=$minSum, max=$maxSum")
+  println(s"minSum=$minSum, maxSum=$maxSum")
 
 }
