@@ -1,11 +1,12 @@
 package hackerrank.warmup
 
-object MiniMaxSum extends App{
+object MiniMaxSum {
 
   val arr = Array(6, 5, 4, 5)
+
   def minMaxSum(arr: Array[Int]) = {
     require(arr.nonEmpty, "Empty Array Passed")
-    val result = (arr).foldLeft((0, Integer.MAX_VALUE, Integer.MIN_VALUE)) { (acc, element) => {
+    val (total, min, max) = (arr).foldLeft((0, Integer.MAX_VALUE, Integer.MIN_VALUE)) { (acc, element) => {
       val (total, min, max) = acc
       (total, min, max) match {
         case (x, y, z) if element > max => (total + element, min, element)
@@ -13,11 +14,10 @@ object MiniMaxSum extends App{
         case (x, y, z) => (total + element, min, max)
       }}
     }
-
-    (result._2, result._3)
+    (total - max, total - min)
   }
 
-  val (min,max) = minMaxSum(arr)
-  println(s"min=$min, max=$max")
+  val (minSum, maxSum) = minMaxSum(arr)
+  println(s"min=$minSum, max=$maxSum")
 
 }
