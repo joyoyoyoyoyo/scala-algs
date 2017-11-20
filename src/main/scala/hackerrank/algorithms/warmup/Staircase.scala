@@ -1,4 +1,4 @@
-package hackerrank.warmup
+package hackerrank.algorithms.warmup
 
 object Staircase {
   val n = io.StdIn.readInt()

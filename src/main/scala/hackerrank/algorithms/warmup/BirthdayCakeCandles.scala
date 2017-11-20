@@ -1,11 +1,10 @@
-package hackerrank.warmup
+package hackerrank.algorithms.warmup
 
 object BirthdayCakeCandles {
 
   case class BlownCandle(frequency: Int, tallest: Int)
 
   def birthdayCakeCandles(n: Int, arr: Array[Int]): Int =  {
-    // Complete this function
     val blownOut = arr.foldLeft(BlownCandle(0,0))((candle, currentCandleHeight) => {
       if(currentCandleHeight > candle.tallest)
         BlownCandle(1, currentCandleHeight)

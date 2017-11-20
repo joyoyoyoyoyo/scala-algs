@@ -1,4 +1,4 @@
-package hackerrank.warmup
+package hackerrank.algorithms.warmup
 
 /**
   * Currently using a var, feel free to update this to an immutable method / functional algorithm.

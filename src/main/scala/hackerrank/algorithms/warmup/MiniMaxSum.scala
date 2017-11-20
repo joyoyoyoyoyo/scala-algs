@@ -1,4 +1,4 @@
-package hackerrank.warmup
+package hackerrank.algorithms.warmup
 
 object MiniMaxSum {
 
