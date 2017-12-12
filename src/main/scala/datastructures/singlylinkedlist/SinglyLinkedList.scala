@@ -1,19 +1,15 @@
 package datastructures.singlylinkedlist
 
-class SinglyLinkedList {
+abstract class SinglyLinkedList[A] {
 
-  var root: Option[Node] = None
+  def head: Node[A]
+  def next: Node[A]
 
-  def add(v: Int): Unit = {
-    if (root.isEmpty)
-      root = Some(new Node(v))
-    else {
-      var iterator = root
-      while (iterator.getOrElse(None) != None) {
-        iterator = iterator.
-      }
-    }
-  }
+  def add(v: A): Unit
+  def remove(v: A): Unit
+  def findKth(v: Int): Unit
+  def appendToHead(v: A): Unit
+  def appendToTail(v: A): Unit
 
 }
 

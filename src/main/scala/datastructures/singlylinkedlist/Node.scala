@@ -1,6 +1,5 @@
 package datastructures.singlylinkedlist
 
-class Node(v: Int) {
-  val value = v
-  val next = None
+final case class Node[+A](v: A) {
+  def value: A = v
 }
