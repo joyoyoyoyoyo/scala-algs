@@ -1,4 +1,4 @@
-package datastructures.tree
+package datastructures.binarytree
 
 class Node(v: Int) {
   val left = None
