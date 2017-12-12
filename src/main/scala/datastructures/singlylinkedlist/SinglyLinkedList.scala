@@ -1,5 +1,4 @@
-
-class Node(v: Int) { val value = v; val next: Option[Node] = None }
+package datastructures.singlylinkedlist
 
 class SinglyLinkedList {
 
