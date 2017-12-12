@@ -1,15 +1,15 @@
 package datastructures.singlylinkedlist
 
-abstract class SinglyLinkedList[A] {
+abstract class SinglyLinkedList[Int] {
 
-  def head: Node[A]
-  def next: Node[A]
+  def head: Cons[Int]
+  def next: Cons[Int]
 
-  def add(v: A): Unit
-  def remove(v: A): Unit
-  def findKth(v: Int): Unit
-  def appendToHead(v: A): Unit
-  def appendToTail(v: A): Unit
+  def add(v: Int): Unit
+  def remove(v: Int): Unit
+  def findKth(index: Int): Unit
+  def appendToHead(v: Int): Unit
+  def appendToTail(v: Int): Unit
 
 }
 

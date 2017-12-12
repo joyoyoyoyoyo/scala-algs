@@ -1,5 +1,10 @@
 package datastructures.singlylinkedlist
 
-final case class Node[+A](v: A) {
-  def value: A = v
+sealed trait Node[Int]
+case object Nil extends Node[Nothing]
+
+final case class Cons[Int](v: Int) extends Node[Int] {
+  def value: Int = v
+  def next: Node[Nothing] = Nil
 }
+
