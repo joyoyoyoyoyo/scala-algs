@@ -4,8 +4,21 @@
 class QuickFindUF(val n: Int) {
   val id = Array.tabulate(n)(index => index)
   
+  /** O(1) algorithm to check if two components are connected
+    *   for the Dynamic-Connectivity problem
+    **/
   def connected(p: Int, q: Int) = id(p) == id(q)
 
-  def union(p: Int, q: Int) = ???
+  /** O(n) algorithm to merge two connected components
+    *
+    **/
+  def union(p: Int, q: Int) = {
+    val pid = id(p)
+    val qid = id(q)
+    for (i <- id.indices) {
+      if (id(i) == pid)
+        id(i) = qid
+    }
+  }
 
 }
