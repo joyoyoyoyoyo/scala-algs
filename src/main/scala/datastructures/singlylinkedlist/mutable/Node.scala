@@ -1,4 +1,4 @@
-package datastructures.singlylinkedlist
+package datastructures.singlylinkedlist.mutable
 
 sealed trait Node
 case object Nil extends Node

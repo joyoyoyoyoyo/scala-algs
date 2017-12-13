@@ -1,4 +1,4 @@
-package datastructures.singlylinkedlist
+package datastructures.singlylinkedlist.mutable
 
 abstract class SinglyLinkedListADT {
 
