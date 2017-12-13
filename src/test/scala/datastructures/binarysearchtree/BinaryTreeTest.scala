@@ -1,4 +1,4 @@
-package datastructures.binarytree
+package datastructures.binarysearchtree
 import org.scalatest.FunSpec
 
 class BinaryTreeTest extends FunSpec {

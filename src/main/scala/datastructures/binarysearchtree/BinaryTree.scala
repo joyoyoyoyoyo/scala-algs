@@ -1,4 +1,4 @@
-package datastructures.binarytree
+package datastructures.binarysearchtree
 
 class BinaryTree(n: Node) {
   val root = n
