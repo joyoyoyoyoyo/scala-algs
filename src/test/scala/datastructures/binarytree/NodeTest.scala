@@ -4,8 +4,8 @@ import org.scalatest.FlatSpec
 
 class NodeTest extends FlatSpec {
   "A Node" should "have ordering" in {
-    val less = Node(1)
-    val more = Node(2)
+    val less = Tree(1, Leaf, Leaf)
+    val more = Tree(2, Leaf, Leaf)
     assert(more > less)
   }
 }

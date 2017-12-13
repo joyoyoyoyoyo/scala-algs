@@ -1,11 +1,9 @@
 package datastructures.binarytree
 
-case class Node(value: Int) extends Ordered[Node] {
+sealed trait Node
 
-  val left = None
-  val right = None
+case object Leaf extends Node
 
-
-  override def compare(that: Node): Int = this.value - that.value
-
+case class Tree(val value: Int, left: Node, right: Node) extends Ordered[Tree] with Node {
+  override def compare(that: Tree): Int = this.value - that.value
 }
