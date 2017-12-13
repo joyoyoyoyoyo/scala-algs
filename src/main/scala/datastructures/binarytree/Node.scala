@@ -1,8 +1,11 @@
 package datastructures.binarytree
 
-class Node(v: Int) {
+case class Node(value: Int) extends Ordered[Node] {
+
   val left = None
   val right = None
 
-  val value = v
+
+  override def compare(that: Node): Int = this.value - that.value
+
 }

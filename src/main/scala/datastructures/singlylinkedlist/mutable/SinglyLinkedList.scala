@@ -37,9 +37,6 @@ class SinglyLinkedList {
     */
   def appendToTail(v: Int): Unit = {
 
-    val lastElement = search(v, head)
-    lastElement.next = Cons(v)
-
     @tailrec
     def search(v: Int, node: Node): Cons = {
       node match {
@@ -47,5 +44,8 @@ class SinglyLinkedList {
         case current: Cons => search(v, current.next)
       }
     }
+
+    val lastElement = search(v, head)
+    lastElement.next = Cons(v)
   }
 }
