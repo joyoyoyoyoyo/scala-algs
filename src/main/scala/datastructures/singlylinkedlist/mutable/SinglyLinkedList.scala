@@ -1,13 +1,32 @@
 package datastructures.singlylinkedlist.mutable
 
 object SinglyLinkedList {
-
+  import scala.annotation.tailrec
 
   class SinglyLinkedList {
 
     var head: Node = Nil
 
-    def remove(v: Int): Unit = ???
+    def remove(v: Int) = {
+      head = head match {
+        case Nil => Nil
+        case Cons(vv, Nil) if vv == v => Nil
+        case Cons(vv, Nil) => Cons(vv, Nil)
+        case next: Cons => Cons(next.v, removeRecursive(v, next.next))
+      }
+    }
+
+    @tailrec
+    private def removeRecursive(v: Int, current: Node): Node = {
+      current match {
+        case Cons(vv, Nil) if vv == v  => Nil
+        case Cons(vv, Nil) => Cons(vv, Nil)
+        case Cons(e, Cons(vvv, next)) if vvv == v => Cons(e, next)
+        case Cons(e, Cons(vvv, next)) if vvv == v => removeRecursive(v, next)
+      }
+    }
+
+
 
     def findKth(index: Int): Int = ???
 
@@ -24,8 +43,6 @@ object SinglyLinkedList {
         case prev: Cons => Cons(v, prev)
       }
     }
-
-    import scala.annotation.tailrec
 
     /** A mutable implementation,
       * since this method does not require making a direct copy of the LinkedList
