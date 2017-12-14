@@ -1,59 +1,59 @@
 package datastructures.singlylinkedlist.mutable
 
-
-sealed trait Node
-case object Nil extends Node
-final case class Cons(v: Int) extends Node {
-  def value: Int = v
-  var next: Node = Nil
-}
-
-class SinglyLinkedList {
+object SinglyLinkedList {
 
 
-  var head: Node = Nil
+  class SinglyLinkedList {
 
-  def remove(v: Int): Unit = ???
+    var head: Node = Nil
 
-  def findKth(index: Int): Int = ???
+    def remove(v: Int): Unit = ???
 
-  /** Create a new node and insert the new node into the head, with the next pointer
-    * pointing to the rest of the linked list
-    *
-    * Also known as the prepend operation
-    *
-    * Worst-case time complexity is O(1)
-    *
-    * @param v
-    */
-  def appendToHead(v: Int): Unit = {
-    val node = Cons(v)
-    head = head match {
-      case Nil => node
-      case x: Cons =>  { node.next = head; node }
-    }
-  }
+    def findKth(index: Int): Int = ???
 
-  import scala.annotation.tailrec
-
-  /** A mutable implementation,
-    * since this method does not require making a direct copy of the LinkedList
-    *
-    * Worst-case time complexity is O(N) for an N-element linked list
-    * Space-complexity is O(N), since we begin with N elements and append 1 additional element O(N+1) ~= O(N)
-    * @param v
-    */
-  def appendToTail(v: Int): Unit = {
-
-    @tailrec
-    def search(v: Int, node: Node): Cons = {
-      node match {
-        case current: Cons if current.next == Nil => current
-        case current: Cons => search(v, current.next)
+    /** Create a new node and insert the new node into the head, with the next pointer
+      * pointing to the rest of the linked list
+      **
+      * Worst-case time complexity is O(1)
+      *
+      * @param v
+      */
+    def prepend(v: Int): Unit = {
+      head = head match {
+        case Nil => Cons(v, Nil)
+        case prev: Cons => Cons(v, prev)
       }
     }
 
-    val lastElement = search(v, head)
-    lastElement.next = Cons(v)
+    import scala.annotation.tailrec
+
+    /** A mutable implementation,
+      * since this method does not require making a direct copy of the LinkedList
+      *
+      * Worst-case time complexity is O(N) for an N-element linked list
+      * Space-complexity is O(N), since we begin with N elements and append 1 additional element O(N+1) ~= O(N)
+      *
+      * @param v
+      */
+    def append(v: Int): Unit = appendToTail(v, head)
+
+    @tailrec
+    private def appendToTail(v: Int, node: Node): Node = {
+      node match {
+        case last: Cons if last.next == Nil =>  last.next = Cons(v,Nil); last.next
+        case Nil => head = Cons(v, Nil); head
+        case list: Cons => appendToTail(v, list.next)
+      }
+    }
   }
+
+  sealed trait Node
+
+  final case object Nil extends Node
+
+  final case class Cons(v: Int, var next: Node) extends Node {
+    def value: Int = v
+  }
+
+
 }
