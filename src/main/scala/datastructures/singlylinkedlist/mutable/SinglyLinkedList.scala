@@ -1,13 +1,26 @@
 package datastructures.singlylinkedlist.mutable
 
 object SinglyLinkedList {
+  import scala.annotation.tailrec
 
 
   class SinglyLinkedList {
 
-    var head: Node = Nil
 
-    def remove(v: Int): Unit = ???
+    var head: Option[Cons] = None
+
+    def remove(v: Int): Unit = {
+
+      @tailrec
+      def search(v: Int, node: Option[Cons]): Option[Node] = {
+        node match {
+          case None => None
+          case Some(next) if next.value == v => node.get.next = next.next; node.get.next
+          case Some(next) => search(v, Some(next))
+        }
+      }
+      search(v, head)
+    }
 
     def findKth(index: Int): Int = ???
 
@@ -18,14 +31,12 @@ object SinglyLinkedList {
       *
       * @param v
       */
-    def prepend(v: Int): Unit = {
-      head = head match {
-        case Nil => Cons(v, Nil)
-        case prev: Cons => Cons(v, prev)
-      }
-    }
-
-    import scala.annotation.tailrec
+//    def prepend(v: Int): Unit = {
+//      head = head match {
+//        case Nil => Cons(v, Nil)
+//        case prev: Cons => Cons(v, prev)
+//      }
+//    }
 
     /** A mutable implementation,
       * since this method does not require making a direct copy of the LinkedList
@@ -51,8 +62,8 @@ object SinglyLinkedList {
 
   final case object Nil extends Node
 
-  final case class Cons(v: Int, var next: Node) extends Node {
-    def value: Int = v
+  final case class Cons(v: Int, var next: Option[Node]) extends Node {
+    val value: Int = v
   }
 
 
