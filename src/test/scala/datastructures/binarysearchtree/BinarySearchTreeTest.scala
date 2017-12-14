@@ -2,7 +2,7 @@ package datastructures.binarysearchtree
 
 import org.scalatest.FlatSpec
 
-class NodeTest extends FlatSpec {
+class BinarySearchTreeTest extends FlatSpec {
   "A BinarySearchTree" should "have ordering" in {
     val one = BinarySearchTree(1, Leaf, Leaf)
     val two = BinarySearchTree(2, Leaf, Leaf)
@@ -17,15 +17,33 @@ class NodeTest extends FlatSpec {
     assert(one == oneCopy)
   }
 
+  //TODO: Fix
+  //TODO: Ask myself, how can I represent an unperformed object construction because of invalid requirements?
   "A Binary Search Tree" should "not allow for invalid sorting" in {
-
     val invalid = BinarySearchTree(
           value = 2,
           left=BinarySearchTree(3, Leaf, Leaf),
           right = BinarySearchTree(2, Leaf, Leaf)
-      )
-
+    )
+    fail()
     assert(invalid == None)
+  }
 
+  //TODO: Fix
+  //TODO: Why should a root in a bst begin with -1?
+  "Root" should "begin with depth 0 " in {
+    val simpleBst = BinarySearchTree(
+      value=20,
+      left=BinarySearchTree(-100, Leaf, Leaf),
+      right=BinarySearchTree(1000, Leaf, Leaf)
+    )
+    fail()
+    assert(simpleBst.depth == 0)
+  }
+
+  //TODO: Why should a leaf in a bst begin with depth -1?
+  "A Leaf" should "begin with depth -1 " in {
+    val leaf = Leaf
+    assert(leaf.depth == -1)
   }
 }

@@ -1,6 +1,10 @@
 package datastructures.binarysearchtree
 
-sealed trait Node
+sealed trait Node {
+  def depth: Int = -1
+  def height: Int = 0
+  def visited: Boolean = false
+}
 
 case object Leaf extends Node
 
