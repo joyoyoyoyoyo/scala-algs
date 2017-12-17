@@ -12,7 +12,6 @@ class QuickFindUF(val n: Int) {
   def connected(p: Int, q: Int): Boolean = id(p) == id(q)
 
   /** O(n) algorithm to merge two connected components
-    *
     **/
   def union(p: Int, q: Int): Unit = {
     val pid = id(p)

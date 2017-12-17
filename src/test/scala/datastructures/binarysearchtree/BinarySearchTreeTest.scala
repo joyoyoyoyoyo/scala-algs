@@ -29,9 +29,7 @@ class BinarySearchTreeTest extends FlatSpec {
     assert(invalid == None)
   }
 
-  //TODO: Fix
-  //TODO: Why should a root in a bst begin with -1?
-  "Root" should "begin with depth 0 " in {
+  "Root node" should "have a depth of 0" in {
     val simpleBst = BinarySearchTree(
       value=20,
       left=BinarySearchTree(-100, Leaf, Leaf),

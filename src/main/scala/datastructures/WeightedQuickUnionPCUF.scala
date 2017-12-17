@@ -1,6 +1,9 @@
-package datastructures
 
-class WeightedQuickUnionUF(n: Int) {
+/** In theory, WQU + Path Compression is not quite linear
+  * In practice, WQU + Path Compression is linear
+  * @param n
+  */
+case class WeightedQuickUnionPCUF(n: Int) {
   /** Initialize
     * O(N)
     */
@@ -13,6 +16,8 @@ class WeightedQuickUnionUF(n: Int) {
   private def root(i: Int): Int = {
     var iter = i
     while (iter != id(i)) {
+      // Path compression adds constant time
+      id(iter) = id(id(iter))
       iter = id(iter)
     }
     iter
@@ -37,4 +42,3 @@ class WeightedQuickUnionUF(n: Int) {
   }
 
 }
-
