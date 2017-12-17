@@ -8,3 +8,4 @@ abstract case class UF(val forest: Array[Int]) {
   def count: Int
 
 }
+
