@@ -24,6 +24,8 @@ case class BinarySearchTree(
 
 }
 
+
+
 /** Bibliography
   * [1] Weis, Mark, 'Data Structures and Algorithm Analysis in C++' Fourth Edition, 2014
   *   Pearson. Weis 122
