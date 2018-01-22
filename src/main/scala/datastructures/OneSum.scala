@@ -5,7 +5,7 @@ package datastructures
   * Time complexity: O(N)
   * Space complexity: O(1)
   */
-class OneSum {
+object OneSum {
   def count(arr: Array[Int]): Int = {
     var count = 0
     for (element <- arr)
