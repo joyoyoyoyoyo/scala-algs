@@ -7,9 +7,9 @@ Descriptions of the algorithms and data structures are written in comments or `*
 ### Flame War 🔥
 All data structures and algorithms in this repository are written both functionally and 
 imperatively for pedagogical reasons. Imperative, mutable code is not encouraged in the Scala community. However, 
-mutable data structures and imperative algorithms are used, to reduce time spent on translating imperative code to 
-functional code and to focus on algorithm-analysis. Most de-facto data structures and algorithm analysis resources 
-write implementations using mutable data structures and imperative algorithms. 
+mutable data structures and imperative algorithms are used for two reasons: (1) to reduce time spent on translating 
+imperative code to functional code and (2) to focus on algorithm-analysis. Most de-facto data structures and algorithm 
+analysis resources write implementations using mutable data structures and imperative algorithms. 
 
 ### D.I.Y. ☭
 Although there are few resources providing a functional approach to algorithms and data structures, this repository is
@@ -21,6 +21,6 @@ and immutable data structure implementations.
 ## [Data Structures](https://github.com/joyoyoyoyoyo/scala-algs/tree/master/src/main/scala/datastructures)
 
 - [X] [Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/UF.scala)
-- [X] [Quick-Find Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/UF.scala)
+- [X] [Quick-Find Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/QuickFindUF.scala)
 
   
