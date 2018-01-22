@@ -1,7 +1,9 @@
 package datastructures
 
 
-
+/**
+  * Time complexity: Theta((1/2)*N*(N-1)) or O(N**2)
+  */
 object TwoSum {
   def count(arr: Array[Int]): Int = {
     var count = 0
