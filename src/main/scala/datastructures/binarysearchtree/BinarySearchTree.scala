@@ -2,10 +2,10 @@ package datastructures.binarysearchtree
 
 /** For any node n_i **/
 sealed trait Node {
-  /** The depth of n_i is the length of the unique path from the root to n_i [1] **/
+  /** The depth of n_i is the length of the unique path from the root to n_i [1]. **/
   def depth: Int = -1
 
-  /** [1] **/
+  /** The height of n_i is the longest path from n_i to a leaf [1].  **/
   def height: Int = 0
   def visited: Boolean = false
 }
