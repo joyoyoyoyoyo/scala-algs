@@ -9,40 +9,58 @@ object Solution005 extends App {
     val mat = Array.fill(s.length, s.length)(false)
 
 
+    var maxLen = 0
+    var maxPalin = ""
 
     for (i <- s.indices) {
       for (j <- i until s.length) {
         val isPalindrome = s(i) == s(j)
         mat(i)(j) = isPalindrome
-      }
-    }
-
-    for (i <- 0 until s.length) {
-      for (j <- i + 1 until s.length - 1) {
-        mat(i)(j) = s(i) == s(j) && s(i + 1) == s(j)
-      }
-    }
-
-    var k = 0
-    var maxLen = 0
-    var maxPalin = ""
-
-    for (i <- 2 until s.length) {
-      for (j <- 0 until s.length - 2) {
-        k = j + i
-        val isPalindrome = ???
-        mat(i)(k) = isPalindrome
         if (isPalindrome) {
-          val seq = s.slice(i, k)
-          if (seq.length > maxLen) {
-            maxLen = seq.length
-            maxPalin = seq
+          val palindrome = s.slice(i, i + 1)
+
+          if (palindrome.length > maxLen) {
+            maxLen = palindrome.length
+            maxPalin = palindrome
           }
         }
       }
     }
 
-    println(mat.mkString(" "))
+    for (i <- 0 until s.length - 1) {
+      val isPalindrome = s(i) == s(i + 1)
+      mat(i)(i + 1) = isPalindrome
+      if (isPalindrome) {
+        val palindrome = s.slice(i, i + 2)
+        if (palindrome.length > maxLen) {
+          maxLen = palindrome.length
+          maxPalin = palindrome
+        }
+      }
+    }
+
+    var j = 0
+    for (k <- 3 to s.length) {
+      for (i <- 0 until s.length - k + 1) {
+        j = i + k - 1
+        val isPalindrome = s(i) == s(j) && mat(i + 1)(j - 1)
+        mat(i)(j) = isPalindrome
+        if (isPalindrome) {
+          val palindrome = s.slice(i, j + 1)
+          if (palindrome.length > maxLen) {
+            maxLen = palindrome.length
+            maxPalin = palindrome
+          }
+        }
+      }
+    }
+
     maxPalin
   }
 }
+
+/**
+  * Reference at:
+  * [1] https://www.geeksforgeeks.org/longest-palindrome-substring-set-1/
+  * [2] https://www.youtube.com/watch?v=Fi5INvcmDos
+  */

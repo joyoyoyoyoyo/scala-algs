@@ -20,4 +20,10 @@ class SolutionTest005 extends FunSuite with Matchers {
     )
   }
 
+  test("bananas should return anana") {
+    assert(
+      Solution005.longestPalindrome("bananas") == "anana"
+    )
+  }
+
 }
