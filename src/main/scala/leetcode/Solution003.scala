@@ -8,24 +8,25 @@ import java.nio.StringCharBuffer
   */
 object Solution003 {
   def lengthOfLongestSubstring(s: String): Int = {
-    val buffer = new StringBuilder
+    var i = 0
+    val dictionary = Array.fill(128)(-1)
+    slideOnString(s, 0, 0, dictionary, 0)
 
-    val prev = 1
-    val maxLength = s.indices.foldLeft(0){ (i, subsequence) => {
-        if (buffer.contains(s(i))) {
-          val maxSoFar = math.max(buffer.length + 1, prev)
-          buffer.clear()
-          maxSoFar
-        }
-        else {
-          buffer + s(i)
-          prev + 1
-        }
-      }
-    }
-    maxLength
+
   }
 
-//  def x() =
-
+  def slideOnString(s: String, start: Int, next: Int, dictionary: Array[Int], max: Int): Int = {
+    if (next == s.length)
+      max
+    // base case: Check if exists
+    else if (dictionary(s(next)) == -1) {
+      dictionary(s(next)) = next
+      slideOnString(s, start, next + 1, dictionary, max + 1)
+    }
+    else {
+      val offset = dictionary(s(next))
+      dictionary(s(next)) = next
+      math.max(slideOnString(s, next, next + 1, dictionary, next - (start + 1)), max)
+    }
+  }
 }
