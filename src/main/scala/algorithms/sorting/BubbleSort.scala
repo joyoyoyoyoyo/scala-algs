@@ -7,7 +7,7 @@ package algorithms.sorting
   */
 object BubbleSort {
 
-  def sort[T](arr: Array[T], cmp: (T, T) => Boolean): Array[T] = {
+  def sort[A](arr: Array[A], cmp: (A, A) => Boolean): Array[A] = {
 
     for (i <- 1 until arr.length) {
       for (window <- (0 to arr.length - i).sliding(2, 1)) {
@@ -20,5 +20,9 @@ object BubbleSort {
       }
     }
     arr
+  }
+
+  def sort[A](arr: Array[A])(implicit ord: Ordering[A]): Array[A] = {
+    sort(arr, ord.lt)
   }
 }
