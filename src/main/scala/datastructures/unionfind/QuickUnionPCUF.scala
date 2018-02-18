@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.unionfind
 
 class QuickUnionPCUF(val n: Int) {
   val id: Array[Int] = Array.tabulate(n)(index => index)

@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.unionfind
 
 class WeightedQuickUnionUF(n: Int) {
   /** Initialize

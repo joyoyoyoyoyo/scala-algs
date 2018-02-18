@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.unionfind
 
 abstract case class UF(val forest: Array[Int]) {
   forest.indices.map(idx => forest(idx) = idx)
@@ -8,4 +8,3 @@ abstract case class UF(val forest: Array[Int]) {
   def count: Int
 
 }
-

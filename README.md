@@ -23,15 +23,27 @@ and immutable data structure implementations.
   - main
     - scala
       - datastructures
-        - [x] Union-Find
-          - [src.main.scala.datastructures.UF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/UF.scala)
-        - [x] Quick-Find Union-Find
-          - [src.main.scala.datastructures.QuickFindUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/QuickFindUF.scala)
-        - [x] Quick-Union Union-Find
-          - [src.main.scala.datastructures.QuickUnionUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/QuickUnionUF.scala)
-        - [x] Quick-Union Union-Find with Path Compression
-          - [src.main.scala.datastructures.QuickUnionPCUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/QuickUnionPCUF.scala)
-        - [x] Weighted Quick-Union Union-Find
-          - [src.main.scala.datastructures.WeightedQuickUnionUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/WeightedQuickUnionUF.scala)
-        - [x] Weighted Quick-Union Union-Find with Path Compression
-          - [src.main.scala.datastructures.WeightedQuickUnionPCUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/WeightedQuickUnionPCUF.scala)
+        - unionfind
+          - [x] Union-Find
+            - [src.main.scala.datastructures.unionfind.UF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/UF.scala)
+          - [x] Quick-Find Union-Find
+            - [src.main.scala.datastructures.unionfind.QuickFindUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickFindUF.scala)
+          - [x] Quick-Union Union-Find
+            - [src.main.scala.datastructures.unionfind.QuickUnionUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickUnionUF.scala)
+          - [x] Quick-Union Union-Find with Path Compression
+            - [src.main.scala.datastructures.unionfind.QuickUnionPCUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickUnionPCUF.scala)
+          - [x] Weighted Quick-Union Union-Find
+            - [src.main.scala.datastructures.unionfind.WeightedQuickUnionUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/WeightedQuickUnionUF.scala)
+          - [x] Weighted Quick-Union Union-Find with Path Compression
+            - [src.main.scala.datastructures.unionfind.WeightedQuickUnionPCUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/WeightedQuickUnionPCUF.scala)
+      - algorithms
+        - sorting
+          - [x] Bubble Sort
+            - [src.main.scala.algorithms.sorting.BubbleSort.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/BubbleSort.scala)
+          - [ ] Insertion Sort
+            - [src.main.scala.algorithms.sorting.InsertionSort.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/InsertionSort.scala)
+          - [ ] Selection Sort
+          - [ ] Merge Sort
+          - [ ] Quick Sort
+          - [ ] Radix Sort
+

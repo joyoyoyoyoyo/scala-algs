@@ -1,3 +1,4 @@
+package datastructures.unionfind
 
 /** In theory, WQU + Path Compression is not quite linear
   * In practice, WQU + Path Compression is linear

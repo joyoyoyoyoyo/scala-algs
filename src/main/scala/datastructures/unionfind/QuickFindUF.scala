@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.unionfind
 
 /** Read in the number of nodes in the forest for the disjoint sets
   * 
