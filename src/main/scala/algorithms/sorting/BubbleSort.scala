@@ -6,26 +6,17 @@ package algorithms.sorting
   */
 object BubbleSort {
 
-  def sort[T](arr: Array[T], cmp: (T, T) => Boolean) = {
-    val windows = arr.sliding(2, 1)
-    val sorting = arr.scanLeft(List.empty[T])((acc, elem) => {
-      
-      acc
-    })
-    windows.foreach( window => {
-      exchangeWhile(cmp(window(0), window(1))) {
-        val swap = window(1)
-        window(1) = window(0)
-        window(0) = swap
+  def sort[T](arr: Array[T], cmp: (T, T) => Boolean): Array[T] = {
+
+    for (i <- arr.indices) {
+      for (window <- (i until arr.length).sliding(2, 1)) {
+        if (cmp(arr(window(0)), arr(window(1)))) {
+          val swap = arr(window(1))
+          arr(window(1)) = arr(window(0))
+          arr(window(0)) = swap
+        }
       }
-    })
-  }
-
-  def exchangeWhile[T](cond: => Boolean)(block: Unit): Unit = {
-    if (cond) {
-      block
-      exchangeWhile(cond)(block)
     }
+    arr
   }
-
 }
