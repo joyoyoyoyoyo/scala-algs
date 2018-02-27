@@ -1,19 +1,19 @@
 package datastructures.priorityqueue
+
+
 /**
   * Created by: Angel Ortega
   * Date: 2/18/18
   */
 abstract class MaxPQ[K <: Ordered[K]] {
-
   /**
     * Create a priority queue with given keys
     */
-//  abstract def this(a: Array[K])
 
   /**
     * Insert a key into the Priority Queue
     */
-  abstract def insert[B <: K](v: B): Unit
+  abstract def insert[B <: K](v: B)(cmp: (B, B) => Boolean): Unit
 
   /**
     * Return and remove the largest key
@@ -33,5 +33,5 @@ abstract class MaxPQ[K <: Ordered[K]] {
   /**
     * Number of entries in the priority queue
     */
-  abstract def size: Int
+//  abstract def size: Int
 }
