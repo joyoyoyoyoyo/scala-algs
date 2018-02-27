@@ -1,12 +1,34 @@
 package datastructures.priorityqueue
 
+//TODO: Factory pattern for MaxBinaryHeap constructors
 /**
   * Created by: Angel Ortega
   * Date: 2/18/18
   */
 class MaxBinaryHeap[K] extends MaxPQ[K] {
 
-  private[this] var capacity = 0
+  private[this] var size = 0
+  private[this] val pq: Array[K]
+
+  /**
+    * Create a priority queue
+    */
+//  def this = ???
+
+
+  /**
+    * Create a priority queue of initial capacity max
+    */
+  def this(capacity: Int) = {
+    pq = Array.ofDim[K](capacity)
+  }
+
+  /**
+    * Create a priority queue from the keys in {{{a[]}}}
+    */
+  def this(a: Array[K]) = {
+    pq = a.clone()
+  }
 
   /**
     * Insert a key into the Priority Queue
@@ -21,9 +43,10 @@ class MaxBinaryHeap[K] extends MaxPQ[K] {
     // swap if binary heap order property violated
     //   recurse until child is not greater than it's parent
     
-    // on terminate, do nothing
-
-    capacity += 1
+    // on end recurse, percolate nothing
+ 
+    // update n-node size of binary heap
+    size += 1
   }
 
   /**
@@ -34,7 +57,7 @@ class MaxBinaryHeap[K] extends MaxPQ[K] {
   /**
     * Is the priority queue empty?
     */
-  override abstract def isEmpty: Boolean = ???
+  override def isEmpty: Boolean = ???
 
   /**
     * Return the largest key
