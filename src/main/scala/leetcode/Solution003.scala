@@ -1,36 +1,31 @@
 package leetcode
 
-import java.nio.StringCharBuffer
-
+// Given a string, find the length of the longest substring without repeating characters.
+// Examples:
+//
+// Given "abcabcbb", the answer is "abc", which the length is 3.
+//
+// Given "bbbbb", the answer is "b", with the length of 1.
+//
+// Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring.
 /**
   * Created by: Angel Ortega
   * Date: 2/4/2018
   */
 object Solution003 {
   def lengthOfLongestSubstring(s: String): Int = {
-    val dictionary = Array.fill(128)((-1,0))
-    slideOnString(s, 0, 0, dictionary, 0)
-
-
+    lengthOfLongestSubstringLoop(s.toList, Map.empty[Char,Int], 0, 0, 0)
   }
 
-  @scala.annotation.tailrec
-  def slideOnString(s: String, start: Int, next: Int, dictionary: Array[(Int,Int)], max: Int): Int = {
-    if (next == s.length) {
-      dictionary.foldLeft(next - start)((maxSoFar, tuple) => {
-        math.max(tuple._2, maxSoFar)
-      })
-    }
-    // base case: Check if exists
-    else if (dictionary(s(next))._1 == -1) {
-      dictionary(s(next)) = (next, max + 1)
-      slideOnString(s, start, next + 1, dictionary, max + 1)
-    }
-    else {
-      val offset = dictionary(s(start))._1 + 1
-      val index = if (s(next) == s(offset)) next else offset
-      dictionary(s(next)) = (next, max )
-      slideOnString(s, index , next + 1, dictionary, next - offset)
+  def lengthOfLongestSubstringLoop(s: List[Char], map: Map[Char, Int], j: Int, i: Int, max: Int): Int = {
+    s match {
+      case Nil => max
+      case head :: tail => {
+        val newIndex = map.getOrElse(head, i)
+        lengthOfLongestSubstringLoop(tail, map + (head -> (j + 1)), j + 1, newIndex, math.max(j - newIndex + 1, max))
+      }
     }
   }
+
+
 }
