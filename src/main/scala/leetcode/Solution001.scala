@@ -4,7 +4,7 @@ package leetcode
   * Created by: Angel Ortega
   * Date: 2/4/2018
   */
-object Solution {
+object Solution001 {
   def twoSum(nums: Array[Int], target: Int): Array[Int] = {
     // Time Complexity: O(n*log(n)), where n is the length the array
     // Space Complexity: O(1), no additional data structures are created
