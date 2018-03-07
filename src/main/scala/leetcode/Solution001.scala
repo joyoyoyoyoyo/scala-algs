@@ -5,7 +5,8 @@ package leetcode
   * Date: 2/4/2018
   */
 object Solution001 {
-  def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+
+  def twoSumInPlace(nums: Array[Int], target: Int): Array[Int] = {
     // Time Complexity: O(n*log(n)), where n is the length the array
     // Space Complexity: O(1), no additional data structures are created
     val sortedNums = nums.zipWithIndex.sortWith(_._1 < _._1)
@@ -25,5 +26,26 @@ object Solution001 {
 
   }
 
+  // Time Complexity: O(n)
+  // We traverse the list containing n elements only once. Each look up in the table costs only O(1) time.
+  //
+  // Space complexity: O(n)
+  // The extra space required depends on the number of items stored in the hash table, which stores at most n elements.
+  def twoSum(nums: Array[Int], target: Int): Array[Int] = {
+      @scala.annotation.tailrec
+      def twoSumLoop(nums: Array[Int], index: Int, target: Int, map: Map[Int, Int]): Array[Int] = {
+        if (nums.isEmpty)
+          Array(0, 0)
+        else {
+          map.get(nums.head) match {
+            case Some(firstIndex) => Array(firstIndex, index)
+            case None => twoSumLoop(nums.tail, index + 1, target, map + ((target - nums.head) -> index))
+          }
+        }
+      }
+
+    twoSumLoop(nums, 0, target, Map.empty[Int, Int])
+
+  }
 
 }
