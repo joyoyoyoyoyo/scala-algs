@@ -1,4 +1,4 @@
-package datastructures
+package algorithms
 
 /** 1-SUM Problem: How many single numbers equal exactly zero?
   *

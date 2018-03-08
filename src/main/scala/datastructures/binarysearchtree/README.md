@@ -6,4 +6,3 @@
 + Very helpful for large ordered sequences of data
 + Refined ideas to obtain O(log(N)) worst-case bounds
 + Discuss and use the set and map classes
-+ 

@@ -1,4 +1,4 @@
-package datastructures
+package datastructures.graph
 
 import scala.collection.immutable.ListSet
 

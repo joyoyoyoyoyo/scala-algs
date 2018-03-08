@@ -1,4 +1,4 @@
-package datastructures
+package algorithms
 
 /** 3-SUM problem
   * Given N distinct integers, find how many triples sum to exactly zero
