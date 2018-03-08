@@ -14,31 +14,37 @@ class MaxBinaryHeap[K : Ordering : ClassTag](val capacity: Int = 100) extends Ma
   private[this] val pq = Array.ofDim[K](capacity)
   private[this] var _size = 0
 
-  private[this] def parent(index: Int) = math.floor(index / 2).toInt
-  private[this] def left(index: Int) = (index * 2) + 1
-  private[this] def right(index: Int) = (index * 2) + 2
+  private[this] def getParentIndex(index: Int) = math.floor(index / 2).toInt
+  private[this] def getLeftChildIndex(index: Int) = (index * 2) + 1
+  private[this] def getRightChildIndex(index: Int) = (index * 2) + 2
 
 
   /**
     * Insert a key into the Priority Queue
     */
   override def insert[B <: K](v: B): Unit = {
-    pq(size) = v
     // move child to leftmost, bottommost path,
     //   obeying balance property
+    pq(size) = v
 
-    var curr = size
-    // check parent index for heap order proprty, that is,
-    //   no child should be greater than it's parent
-    while (implicitly[Ordering[K]].lt(pq(parent(curr)), pq(curr))) {
-      // swap if binary heap order property violated
-      //   recurse until child is not greater than it's parent
-      exch(parent(curr), curr)
-      curr = parent(curr)
+    def bubbleUp[B <: K](v: B, index: Int): Unit = {
+      val parent = pq(getParentIndex(index))
+      val current = pq(index)
+
+      // parent < child, so swap
+      // check parent index for heap order proprty, that is,
+      //   no child should be greater than it's parent
+      if (implicitly[Ordering[K]].lt(parent, current)) {
+        // swap if binary heap order property violated
+        //   recurse until child is not greater than it's parent
+        exch(getParentIndex(index), index)
+        bubbleUp(v, getParentIndex(index))
+      }
     }
 
-    // update n-node size of binary heap
-    _size += 1
+    bubbleUp(v, size)
+
+    _size += 1 // update n-node size of binary heap
   }
 
 
