@@ -1,17 +1,10 @@
 package algorithms.sorting
 
-import scala.language.higherKinds
-
 /**
   * Created by: Angel Ortega
   * Date: 2/16/18
   */
 object InsertionSort {
-
-//  def search[A : Ordering](acc: List[A], element: A): List[A] = {
-//    import scala.math.Ordering.Implicits._
-//    acc.indices.reduceLeft( (i, j) => acc(i) < acc(j))
-//  }
 
   def sort[A : Ordering](xs: List[A]): List[A] = {
     def insert[A: Ordering](x: A,  xs: List[A]): List[A] = {
