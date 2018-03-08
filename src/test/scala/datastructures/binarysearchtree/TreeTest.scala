@@ -27,7 +27,7 @@ class TreeTest extends FlatSpec {
           right = Tree(2, Leaf, Leaf)
     )
     fail()
-    assert(invalid == None)
+//    assert(invalid == None)
   }
 
   "Root node" should "have a depth of 0" in {
