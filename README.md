@@ -40,7 +40,7 @@ and immutable data structure implementations.
         - sorting
           - [x] Bubble Sort
             - [src.main.scala.algorithms.sorting.BubbleSort.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/BubbleSort.scala)
-          - [ ] Insertion Sort
+          - [x] Insertion Sort
             - [src.main.scala.algorithms.sorting.InsertionSort.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/InsertionSort.scala)
           - [ ] Selection Sort
           - [ ] Merge Sort

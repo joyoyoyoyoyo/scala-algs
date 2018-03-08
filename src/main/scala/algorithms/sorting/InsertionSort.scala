@@ -13,20 +13,13 @@ object InsertionSort {
 //    acc.indices.reduceLeft( (i, j) => acc(i) < acc(j))
 //  }
 
-  def sort[A : Ordering](unsorted: List[A]): List[A] = {
-    import scala.math.Ordering.Implicits._
-
-    val sortedLL = unsorted.indices.foldLeft(List.empty[A])( (acc, i) =>{
-      val indexOfMin: Int = (i until unsorted.length).reduceLeft(
-        (x, y) =>
-          if (unsorted(x) < unsorted(y)) x else y
-      )
-      val swap = unsorted(i)
-      val firstSwapLL = unsorted.updated(i, unsorted(indexOfMin))
-      firstSwapLL.updated(indexOfMin, swap)
-
-    })
-    sortedLL
+  def sort[A : Ordering](xs: List[A]): List[A] = {
+    def insert[A: Ordering](x: A,  xs: List[A]): List[A] = {
+      if (xs.isEmpty || implicitly[Ordering[A]].lt(x, xs.head)) x :: xs
+      else xs.head :: insert(x, xs.tail)
+    }
+    if (xs.isEmpty) Nil
+    else insert(xs.head, sort(xs.tail))
   }
 
 
