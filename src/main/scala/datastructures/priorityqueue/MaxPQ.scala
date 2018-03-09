@@ -1,24 +1,23 @@
 package datastructures.priorityqueue
 
+import scala.reflect.ClassTag
+
 
 /**
   * Created by: Angel Ortega
   * Date: 2/18/18
   */
-abstract class MaxPQ[K] {
-  /**
-    * Create a priority queue with given keys
-    */
+abstract class MaxPQ[K : Ordering](protected val pq: Array[K]) {
 
   /**
     * Insert a key into the Priority Queue
     */
-  def insert[B <: K](v: B): Unit
+  def insert(v: K): Unit
 
   /**
     * Return and remove the largest key
     */
-  def delMax[B <: K](): B
+  def delMax(): K
 
   /**
     * Is the priority queue empty?
@@ -28,7 +27,7 @@ abstract class MaxPQ[K] {
   /**
     * Return the largest key
     */
-  def max[B <: K]: B
+  def max: K
 
   /**
     * Number of entries in the priority queue
