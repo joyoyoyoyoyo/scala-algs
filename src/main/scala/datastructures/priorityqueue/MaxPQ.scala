@@ -7,17 +7,20 @@ import scala.reflect.ClassTag
   * Created by: Angel Ortega
   * Date: 2/18/18
   */
-abstract class MaxPQ[K : Ordering](protected val pq: Array[K]) {
+abstract class MaxPQ[T](protected val pq: Array[T]) {
+  /**
+    * Create a priority queue with given keys
+    */
 
   /**
     * Insert a key into the Priority Queue
     */
-  def insert(v: K): Unit
+  def insert(v: T)
 
   /**
     * Return and remove the largest key
     */
-  def delMax(): K
+  def delMax(): T
 
   /**
     * Is the priority queue empty?
@@ -27,7 +30,7 @@ abstract class MaxPQ[K : Ordering](protected val pq: Array[K]) {
   /**
     * Return the largest key
     */
-  def max: K
+  def max: T
 
   /**
     * Number of entries in the priority queue

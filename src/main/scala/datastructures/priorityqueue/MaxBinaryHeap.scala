@@ -7,24 +7,21 @@ import scala.reflect.{ClassTag, Manifest}
   * Created by: Angel Ortega
   * Date: 2/18/18
   */
-class MaxBinaryHeap[K : Ordering : ClassTag](val capacity: Int = 100) extends MaxPQ[K](Array.ofDim[K](capacity)) {
+class MaxBinaryHeap(capacity: Int = 100) extends MaxPQ[Int](Array.ofDim(capacity)) {
   /**
     * Create a priority queue of initial capacity max
     */
 
-//  /**
-//    * Create a priority queue with given keys
-//    */
   private[this] var _size = 0
-  private[this] def parent(index: Int) = math.floor(index / 2).toInt
-  private[this] def left(index: Int) = (index * 2) + 1
-  private[this] def right(index: Int) = (index * 2) + 2
+  private[this] def getParentIndex(index: Int) = math.floor((index - 1)/ 2).toInt
+  private[this] def getLeftChildIndex(index: Int) = (index * 2) + 1
+  private[this] def getRightChildIndex(index: Int) = (index * 2) + 2
 
 
   /**
     * Insert a key into the Priority Queue
     */
-  override def insert(v: K): Unit = {
+  override def insert(v: Int): Unit = {
     pq(size) = v
     // move child to leftmost, bottommost path,
     //   obeying balance property
@@ -32,11 +29,11 @@ class MaxBinaryHeap[K : Ordering : ClassTag](val capacity: Int = 100) extends Ma
     var curr = size
     // check parent index for heap order property, that is,
     //   no child should be greater than it's parent
-    while (implicitly[Ordering[K]].lt(pq(parent(curr)), pq(curr))) {
+    while (pq(getParentIndex(curr)) < pq(curr)) {
       // swap if binary heap order property violated
       //   recurse until child is not greater than it's parent
-      exch(parent(curr), curr)
-      curr = parent(curr)
+      exch(getParentIndex(curr), curr)
+      curr = getParentIndex(curr)
     }
 
     // update n-node size of binary heap
@@ -53,7 +50,7 @@ class MaxBinaryHeap[K : Ordering : ClassTag](val capacity: Int = 100) extends Ma
   /**
     * Return and remove the largest key
     */
-  override def delMax(): K = ???
+  override def delMax(): Int = ???
 
   /**
     * Is the priority queue empty?
@@ -63,7 +60,7 @@ class MaxBinaryHeap[K : Ordering : ClassTag](val capacity: Int = 100) extends Ma
   /**
     * Return the largest key
     */
-  override def max: K = ???
+  override def max: Int = ???
 
   /**
     * Number of entries in the priority queue
@@ -71,6 +68,6 @@ class MaxBinaryHeap[K : Ordering : ClassTag](val capacity: Int = 100) extends Ma
   override def size: Int = _size
 
   override def toString: String = {
-    s"MaxBinaryHeap@${this.hashCode()}=" + pq.mkString("[", ",", "]")
+    s"MaxBinaryHeap=" + pq.mkString("[", ", ", "]")
   }
 }
