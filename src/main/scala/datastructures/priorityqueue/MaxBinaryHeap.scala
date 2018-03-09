@@ -7,7 +7,7 @@ import scala.reflect.{ClassTag, Manifest}
   * Created by: Angel Ortega
   * Date: 2/18/18
   */
-class MaxBinaryHeap(capacity: Int = 100) extends MaxPQ[Int](Array.ofDim(capacity)) {
+class MaxBinaryHeap(private val capacity: Int = 100) extends MaxPQ[Int](Array.ofDim(capacity)) {
   /**
     * Create a priority queue of initial capacity max
     */
@@ -20,6 +20,7 @@ class MaxBinaryHeap(capacity: Int = 100) extends MaxPQ[Int](Array.ofDim(capacity
 
   /**
     * Insert a key into the Priority Queue
+    * Time Complexity: O(log(n))
     */
   override def insert(v: Int): Unit = {
     pq(size) = v

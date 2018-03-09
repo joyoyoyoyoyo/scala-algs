@@ -14,6 +14,7 @@ abstract class MaxPQ[T](protected val pq: Array[T]) {
 
   /**
     * Insert a key into the Priority Queue
+    * Time Complexity: O(log(n))
     */
   def insert(v: T)
 
