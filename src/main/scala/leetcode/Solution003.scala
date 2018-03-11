@@ -19,8 +19,7 @@ object Solution003 {
       else {
           map.get(xs(j)) match {
             case Some(index) => {
-              val substring = s.substring(i, j)
-              lengthOfLongestSubstringLoop(xs, map + (xs(j) -> j), index + 1, j + 1, math.max(j - i , max))
+              lengthOfLongestSubstringLoop(xs, map - (xs(j)), index, index + 1, math.max(j - index, max))
             }
             case None => lengthOfLongestSubstringLoop(xs, map + (xs(j) -> j), i, j + 1, math.max(j - i + 1, max))
           }
