@@ -65,4 +65,38 @@ class MaxBinaryHeapTest extends FlatSpec with Matchers {
 
   }
 
+  "Deleting into a heap" should "percolate down and obey the order property" in {
+
+    val heap = new MaxBinaryHeap(6)
+
+    heap.insert(1)
+    heap.insert(2)
+    heap.insert(3)
+    heap.insert(4)
+    heap.insert(5)
+    heap.insert(6)
+    //     6
+    //    / \
+    //   4   5
+    //  / \ / \
+    // 1  3 2
+
+    assert(heap.delMax() == 6)
+    assert(heap.toString == "MaxBinaryHeap=[5, 4, 2, 1, 3, 0]")
+    //     5
+    //    / \
+    //   4   2
+    //  / \ / \
+    // 1  3
+
+    assert(heap.delMax() == 5)
+    assert(heap.toString == "MaxBinaryHeap=[4, 3, 2, 1, 0, 0]")
+    //     4
+    //    / \
+    //   3   2
+    //  / \ / \
+    // 1
+
+  }
+
 }

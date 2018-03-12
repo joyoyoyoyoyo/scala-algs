@@ -51,7 +51,37 @@ class MaxBinaryHeap(private val capacity: Int = 100) extends MaxPQ[Int](Array.of
   /**
     * Return and remove the largest key
     */
-  override def delMax(): Int = ???
+  override def delMax(): Int = {
+    val root = pq(0)
+    _size -= 1
+    pq(0) = pq(size)
+    pq(size) = 0
+
+    var idx = 0
+    while (hasLeftChild(idx)) {
+      val left = pq(getLeftChildIndex(idx))
+      val maxChildIdx =
+        if (hasRightChild(idx) && getRightChildIndex(idx) < size) {
+          val right = pq(getRightChildIndex(idx))
+          if (left > right)
+            getLeftChildIndex(idx)
+          else
+            getRightChildIndex(idx)
+        }
+        else {
+          getLeftChildIndex(idx)
+        }
+
+      exch(maxChildIdx, idx)
+      idx = maxChildIdx
+    }
+    root
+  }
+
+  private def hasLeftChild(idx: Int): Boolean = getLeftChildIndex(idx) <= size
+  private def hasRightChild(idx: Int): Boolean = getRightChildIndex(idx) <= size
+
+
 
   /**
     * Is the priority queue empty?
