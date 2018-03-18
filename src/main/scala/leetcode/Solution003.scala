@@ -13,44 +13,27 @@ package leetcode
   * Date: 2/4/2018
   */
 object Solution003 {
-//  def lengthOfLongestSubstring(s: String): Int = {
-//    def lengthOfLongestSubstringLoop(xs: String, map: Map[Char, Int], i: Int, j: Int, max: Int): Int = {
-//      if (j >= xs.length ) max
-//      else {
-//          map.get(xs(j)) match {
-//            case Some(index) => {
-//              lengthOfLongestSubstringLoop(xs, map - (xs(j)), index, index + 1, math.max(j - index, max))
-//            }
-//            case None => lengthOfLongestSubstringLoop(xs, map + (xs(j) -> j), i, j + 1, math.max(j - i + 1, max))
-//          }
-//        }
-//    }
-//    lengthOfLongestSubstringLoop(s, Map.empty[Char,Int], 0, 0, 0)
-//  }
   def lengthOfLongestSubstring(s: String): Int = {
 
-    val index = Array.fill(256)(-1)
-    var i, j = 0
-    var len = 0
-    while (j < s.length) {
-      if (index(s(j)) != -1) {
-        index(s(j)) = j
-
-        j += 1
-        len = math.max(len, s.substring(i, j).length)
+    @scala.annotation.tailrec
+    def loopForMaxSubstring(s: String, map: Map[Char, Int], i: Int, j: Int, acc: Int): Int = {
+      if (j < s.length) {
+        map.get(s.charAt(j)) match {
+          case Some(prevIdx) => {
+            val idx = math.max(prevIdx, i)
+            loopForMaxSubstring(s, map + (s.charAt(j) -> (j + 1)), idx, j + 1, math.max(j - idx + 1, acc))
+          }
+          case None => {
+            // move window of [i, j]
+            loopForMaxSubstring(s, map + (s.charAt(j) -> (j + 1)), i, j + 1, math.max(acc, j - i + 1))
+          }
+        }
       }
-      else {
-        len = math.max(len, s.substring(i, j).length)
-        i = index(s(j)) + 1
-        index(s(j)) = j
-        j += 1
-      }
-
-
-
+      else
+        acc
     }
-    len
 
+    loopForMaxSubstring(s, Map.empty[Char, Int], 0, 0, 0)
   }
 
 }
