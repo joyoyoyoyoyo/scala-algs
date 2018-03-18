@@ -1,4 +1,4 @@
-package algorithms.searching
+package algorithms.search
 
 import org.scalatest.{FlatSpec, Matchers}
 

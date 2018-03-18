@@ -1,6 +1,13 @@
-package algorithms.searching
+package algorithms.search
 
 
+/** Binary Search in a Sorted Array:
+  *
+  * Time Complexity: O(log(n))
+  * Space Complexity: O(1)
+  *
+  * Assumptions: Applies to a sorted array data structure
+  */
 object BinarySearch {
 
   def indexOf(arr: Array[Int], target: Int): Int = {

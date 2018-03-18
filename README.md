@@ -1,10 +1,7 @@
 # 📚 scala-algs 💻
-Algorithms, data structures, and coding problems from Coursera, Textbooks, and HackerRank—all using Scala.
+Algorithms and Data Structures written in Scala, along with LeetCode problems.
 
-Descriptions of the algorithms and data structures are written in comments or `*.MD` files as summaries.
-
-
-### Flame War 🔥
+### Pedagogy 🔥
 All data structures and algorithms in this repository are written both functionally and
 imperatively for pedagogical reasons. Imperative, mutable code is not encouraged in the Scala community. However,
 mutable data structures and imperative algorithms are used for two reasons: (1) to reduce time spent on translating
@@ -19,31 +16,41 @@ and immutable data structure implementations.
 
 
 ## Data Structures
+
 - src
   - main
     - scala
       - datastructures
+        - binarysearchtree
+          - immutable
+            - solution00
+              - ✅ [Binary Search Tree](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/binarysearchtree/immutable/solution00/Tree.scala)
+            - solution01
+              - ✅ [Binary Search Tree](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/binarysearchtree/immutable/solution01/Tree.scala)
         - unionfind
-          - [x] Union-Find
-            - [src.main.scala.datastructures.unionfind.UF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/UF.scala)
-          - [x] Quick-Find Union-Find
-            - [src.main.scala.datastructures.unionfind.QuickFindUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickFindUF.scala)
-          - [x] Quick-Union Union-Find
-            - [src.main.scala.datastructures.unionfind.QuickUnionUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickUnionUF.scala)
-          - [x] Quick-Union Union-Find with Path Compression
-            - [src.main.scala.datastructures.unionfind.QuickUnionPCUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickUnionPCUF.scala)
-          - [x] Weighted Quick-Union Union-Find
-            - [src.main.scala.datastructures.unionfind.WeightedQuickUnionUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/WeightedQuickUnionUF.scala)
-          - [x] Weighted Quick-Union Union-Find with Path Compression
-            - [src.main.scala.datastructures.unionfind.WeightedQuickUnionPCUF.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/WeightedQuickUnionPCUF.scala)
+          - ✅ [Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/UF.scala)
+          - ✅ [Quick-Find Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickFindUF.scala)
+          - ✅ [Quick-Union Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickUnionUF.scala)
+          - ✅ [Quick-Union Union-Find with Path Compression](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/QuickUnionPCUF.scala)
+          - ✅ [Weighted Quick-Union Union-Find](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/WeightedQuickUnionUF.scala)
+          - ✅ [Weighted Quick-Union Union-Find with Path Compression](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/unionfind/WeightedQuickUnionPCUF.scala)
+        - priorityqueue
+          - ✅ [Max Binary Heap](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/priorityqueue/MaxBinaryHeap.scala)
+          - ✅ [Abstract Max PQ](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/priorityqueue/MaxPQ.scala)
+        - singlylinkedlist
+          - mutable
+            - ✅ [Singly Linked List](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/singlylinkedlist/mutable/SinglyLinkedList.scala)   
+        - undirectedgraph
+          - solution00
+            - ✅ [Adjacency List Undirected Graph](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/datastructures/undirectedgraph/solution00/UndirectedGraph.scala)
       - algorithms
         - sorting
-          - [x] Bubble Sort
-            - [src.main.scala.algorithms.sorting.BubbleSort.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/BubbleSort.scala)
-          - [x] Insertion Sort
-            - [src.main.scala.algorithms.sorting.InsertionSort.scala](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/InsertionSort.scala)
-          - [ ] Selection Sort
-          - [ ] Merge Sort
-          - [ ] Quick Sort
-          - [ ] Radix Sort
+          - ✅ [Bubble Sort](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/BubbleSort.scala)
+          - ✅ [Insertion Sort](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/InsertionSort.scala)
+          - ✅ [Selection Sort](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/sorting/SelectionSort.scala)
+          - 💭 Merge Sort
+          - 💭 Quick Sort
+          - 💭 Radix Sort
+        - search
+          - ✅ [Binary Search on a Sorted Array](https://github.com/joyoyoyoyoyo/scala-algs/blob/master/src/main/scala/algorithms/search/BinarySearch.scala)
 

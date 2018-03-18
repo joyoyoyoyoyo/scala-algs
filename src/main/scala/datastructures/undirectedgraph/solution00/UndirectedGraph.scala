@@ -1,6 +1,7 @@
-package datastructures.graph
+package datastructures.undirectedgraph.solution00
 
 import scala.collection.immutable.ListSet
+
 
 case class Vertex[+T](index: Int, value: T)
 object Vertex {
@@ -15,7 +16,7 @@ object Vertex {
   * @param V: number of vertices
   * @throws IllegalArgumentException if a negative number is inserted {{{ V < 0 }}}
   */
-case class Graph(V: Int) {
+case class UndirectedGraph(V: Int) {
   require(V > -1, "The number of vertices in a graph must always have 0 or more vertices.")
 
   /**
