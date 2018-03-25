@@ -1,6 +1,6 @@
 package datastructures.binarysearchtree
 
-import datastructures.binarysearchtree.immutable.solution01.Tree
+import datastructures.binarysearchtree.immutable.solution01.{Leaf, Tree}
 import org.scalatest.FlatSpec
 
 class TreeTest extends FlatSpec {
