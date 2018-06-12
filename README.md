@@ -15,7 +15,7 @@ steps to document alternative implementations can help others learn alternative 
 and immutable data structure implementations.
 
 
-## Data Structures
+## Index
 
 - src
   - main
